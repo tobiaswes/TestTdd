@@ -14,4 +14,11 @@ public class TimeConverterTest {
         assertThat(TimeConverter.secondsToMinutes(60))
                 .isEqualTo(1.0);
     }
+
+    @Test
+    void shouldThrowExceptionForNegativeSeconds(){
+        assertThatThrowBy(()-> TimeConverter.secondsToMinutes(-10))
+                .isInstaceOf(IllegalArgumentException.class)
+                .hasMessageContaining("negative");
+    }
 }
