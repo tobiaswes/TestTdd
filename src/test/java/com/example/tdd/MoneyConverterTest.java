@@ -15,4 +15,15 @@ public class MoneyConverterTest {
 
         assertThat(result).isEqualByComparingTo("92.00");
     }
+
+    @Test
+    void shouldConvertZeroUsdToEuro() {
+        BigDecimal usd = new BigDecimal("0");
+
+        BigDecimal result = BigDecimal.valueOf(MoneyConverter.usdToEuro(usd));
+
+        assertThat(result).isEqualByComparingTo("0");
+    }
+
+
 }
