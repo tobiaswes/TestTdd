@@ -31,5 +31,12 @@ public class TimeConverterTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("negative");
     }
+
+    @Test
+    @DisplayName("Should convert minutes to seconds")
+    void shouldConvertMinutesToSeconds() {
+        assertThat(timeConverter.secondsToMinutes(60))
+                .isEqualTo(3600);
+    }
 }
 
