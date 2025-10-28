@@ -24,6 +24,14 @@ public class MoneyConverterTest {
 
         assertThat(result).isEqualByComparingTo("0");
     }
+    @Test
+    void ConvertNegativeUsdToEuro() {
+        BigDecimal usd = new BigDecimal("-10");
+
+        BigDecimal result = BigDecimal.valueOf(MoneyConverter.usdToEuro(usd));
+
+        assertThat(result).isEqualByComparingTo("0");
+    }
 
 
 }
