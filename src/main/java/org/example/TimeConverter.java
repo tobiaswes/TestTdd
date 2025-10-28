@@ -16,4 +16,9 @@ public class TimeConverter {
         }
     }
 
+    public double minutesToSeconds(double seconds) {
+        validateNonNegative(seconds, "seconds");
+        return Math.round(seconds * SECONDS_PER_MINUTE);
+    }
+
 }
