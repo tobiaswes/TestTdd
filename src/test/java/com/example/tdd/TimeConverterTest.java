@@ -40,10 +40,10 @@ public class TimeConverterTest {
     }
 
     @Test
-    @DisplayName("Should convert minutes to seconds")
-    void shouldConvertMinutesToHours() {
-        assertThat(timeConverter.minutesToHours(600))
-                .isEqualTo(10);
+    @DisplayName("Should convert minutes to hours")
+    void shouldConverMinutesToHours() {
+        assertThat(timeConverter.minutesToHours(10))
+                .isEqualTo(600);
     }
 
 }
