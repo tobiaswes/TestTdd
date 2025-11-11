@@ -5,8 +5,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.NullAndEmptySource;
 
 @DisplayName("StringProcessor Demo")
 public class StringProcessorTest {
@@ -59,6 +57,13 @@ public class StringProcessorTest {
             assertEquals(expected, processor.reverse(inputEmptyString), "Ska returnera en tom sträng");
         }
 
+        @Test
+        @DisplayName("Should preserve space in reversal")
+        void shouldPreserveSpaceInReversal() {
+            String input = "123 abcd";
+            String expected = "dcba 321";
+            assertEquals(expected, processor.reverse(input), "Vänder på strängen och behåller mellanslaget");
+        }
 
     }
 }
