@@ -45,5 +45,20 @@ public class StringProcessorTest {
 
             assertEquals(expected, processor.reverse(input), "En enskild bokstav skall inte ändra.");
         }
+
+        @Test
+        @DisplayName("Should handle null and empty string")
+        void shouldHandleNullAndEmptyStrings() {
+            String inputNull = null;
+            String expected = "";
+
+            assertEquals(expected, processor.reverse(inputNull), "Ska returnera en tom sträng");
+
+            String inputEmptyString = "";
+
+            assertEquals(expected, processor.reverse(inputEmptyString), "Ska returnera en tom sträng");
+        }
+
+
     }
 }
