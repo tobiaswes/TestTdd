@@ -29,4 +29,35 @@ class CalculatorTest {
 
         assertEquals(expectedResult, result, "3 + 2 ska vara 5. Addition fungerade inte korrekt.");
     }
+
+    @Test
+    @DisplayName("Should add zero to a number")
+    void shouldAddZeroToNumber() {
+        int expectedResult = 5;
+
+        int result1 = calculator.add(5, 0);
+        assertEquals(expectedResult, result1, "Att lägga till 0 i 5 ska returnera 10.");
+
+        int result2 = calculator.add(0, 5);
+        assertEquals(expectedResult, result2, "Att lägga till 5 i 0 ska returnera 10.");
+    }
+
+    @Test
+    @DisplayName("Should add negative numbers")
+    void shouldAddNegativeNumbers() {
+
+        int expectedResult1 = -7;
+        int result1 = calculator.add(-4, -3);
+        assertEquals(expectedResult1, result1, "Summan av -4 och -3 ska vara -7.");
+
+        // Fall 2: Positivt och negativt tal där resultatet är positivt (10) + (-5) = 5
+        int expectedResult2 = 3;
+        int result2 = calculator.add(8, -5);
+        assertEquals(expectedResult2, result2, "8 + (-5) ska vara 3.");
+
+        int expectedResult3 = -5;
+        int result3 = calculator.add(5, -10);
+        assertEquals(expectedResult3, result3, "5 + (-10) ska vara -5.");
+    }
+
 }
