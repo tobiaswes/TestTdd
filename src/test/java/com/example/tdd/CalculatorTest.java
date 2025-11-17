@@ -60,4 +60,19 @@ class CalculatorTest {
         assertEquals(expectedResult3, result3, "5 + (-10) ska vara -5.");
     }
 
+    @Test
+    @DisplayName("Should subtract two numbers")
+    void shouldSubtractTwoNumbers() {
+
+        int expectedResult1 = 7;
+        int result1 = calculator.subtract(10,3);
+        assertEquals(expectedResult1,result1, "10 - 7 ska vara 5.");
+
+        int expectedResult2 = 7;
+        int result2 = calculator.subtract(5,0);
+        assertEquals(expectedResult1,result2, "5 - 0 ska vara 5.");
+    }
+
+
+
 }
