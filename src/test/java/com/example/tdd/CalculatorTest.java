@@ -86,4 +86,32 @@ class CalculatorTest {
         assertEquals(expectedResult2, result2, "5 - (-2) ska vara 7.");
     }
 
+    @Test
+    @DisplayName("Should multiply two numbers")
+    void shouldMultiplyTwoNumbers() {
+
+        int expectedResult1 = 20;
+        int result1 = calculator.multiply(5, 4);
+        assertEquals(expectedResult1, result1, "5 * 4 ska vara 20.");
+
+        int expectedResult2 = -20;
+        int result2 = calculator.multiply(5, -4);
+        assertEquals(expectedResult2, result2, "5 * -4 ska vara -20.");
+
+        int expectedResult3 = 20;
+        int result3 = calculator.multiply(-5, -4);
+        assertEquals(expectedResult3, result3, "-5 * -4 ska vara 20.");
+    }
+
+    @Test
+    @DisplayName("Should return zero when multiplying by zero")
+    void shouldReturnZeroWhenMultiplyingByZero() {
+        int expectedResult = 0;
+
+        int result1 = calculator.multiply(10, 0);
+        assertEquals(expectedResult, result1, "Alla tal gånger noll ska vara noll.");
+
+        int result2 = calculator.multiply(0, 10);
+        assertEquals(expectedResult, result2, "Noll gånger alla tal ska vara noll.");
+    }
 }
