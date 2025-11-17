@@ -73,6 +73,17 @@ class CalculatorTest {
         assertEquals(expectedResult1,result2, "5 - 0 ska vara 5.");
     }
 
+    @Test
+    @DisplayName("Should handle negative result in subtraction")
+    void shouldHandleNegativeResultInSubtraction() {
 
+        int expectedResult1 = -5;
+        int result1 = calculator.subtract(5, 10);
+        assertEquals(expectedResult1, result1, "5 - 10 ska vara -5.");
+
+        int expectedResult2 = 7;
+        int result2 = calculator.subtract(5, -2);
+        assertEquals(expectedResult2, result2, "5 - (-2) ska vara 7.");
+    }
 
 }
