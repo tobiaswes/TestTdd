@@ -5,6 +5,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.NullAndEmptySource;
 
 @DisplayName("StringProcessor Demo")
 public class StringProcessorTest {
@@ -44,17 +46,14 @@ public class StringProcessorTest {
             assertEquals(expected, processor.reverse(input), "En enskild bokstav skall inte ändra.");
         }
 
-        @Test
-        @DisplayName("Should handle null and empty string")
-        void shouldHandleNullAndEmptyStrings() {
-            String inputNull = null;
+        @ParameterizedTest
+        @NullAndEmptySource
+        @DisplayName("Should handle null and empty strings")
+        void shouldHandleNullAndEmptyStrings(String input) {
+
             String expected = "";
-
-            assertEquals(expected, processor.reverse(inputNull), "Ska returnera en tom sträng");
-
-            String inputEmptyString = "";
-
-            assertEquals(expected, processor.reverse(inputEmptyString), "Ska returnera en tom sträng");
+            assertEquals(expected, processor.reverse(input),
+                    "Ska returnera en tom sträng för både null och tom input.");
         }
 
         @Test
