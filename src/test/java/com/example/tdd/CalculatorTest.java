@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @DisplayName("Calculator TDD")
 class CalculatorTest {
@@ -113,5 +114,40 @@ class CalculatorTest {
 
         int result2 = calculator.multiply(0, 10);
         assertEquals(expectedResult, result2, "Noll gånger alla tal ska vara noll.");
+    }
+
+    @Test
+    @DisplayName("Should divide two numbers")
+    void shouldDivideTwoNumbers() {
+
+        double expectedResult = 5.0;
+        double result = calculator.divide(10, 2);
+
+        assertEquals(expectedResult, result, 0.0001, "10 / 2 ska vara 5.0.");
+    }
+
+    @Test
+    @DisplayName("Should handle decimal division")
+    void shouldHandleDecimalDivision() {
+
+        double expectedResult = 2.5;
+        double result = calculator.divide(10, 4);
+
+        assertEquals(expectedResult, result, 0.0001, "10 / 4 ska vara 2.5.");
+
+        double expectedResult2 = 0.3333333333333333; // Ca 1/3
+        double result2 = calculator.divide(1, 3);
+
+        assertEquals(expectedResult2, result2, 0.0001, "1 / 3 ska vara ca 0.333.");
+    }
+
+    @Test
+    @DisplayName("Should throw exception when dividing by zero")
+    void shouldThrowExceptionWhenDividingByZero() {
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            calculator.divide(10, 0);
+        }, "Division med noll ska kasta IllegalArgumentException.");
+
     }
 }
