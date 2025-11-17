@@ -66,11 +66,11 @@ class CalculatorTest {
 
         int expectedResult1 = 7;
         int result1 = calculator.subtract(10,3);
-        assertEquals(expectedResult1,result1, "10 - 7 ska vara 5.");
+        assertEquals(expectedResult1,result1, "10 - 3 ska vara 7.");
 
-        int expectedResult2 = 7;
+        int expectedResult2 = 5;
         int result2 = calculator.subtract(5,0);
-        assertEquals(expectedResult1,result2, "5 - 0 ska vara 5.");
+        assertEquals(expectedResult2,result2, "5 - 0 ska vara 5.");
     }
 
     @Test
