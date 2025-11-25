@@ -10,4 +10,18 @@ public class StringProcessor {
 
         return new StringBuilder(input).reverse().toString();
     }
+
+    public boolean isPalindrome(String text) {
+
+        if (text == null || text.isEmpty()) {
+            return true;
+        }
+
+        String cleanedText = text.toLowerCase().replaceAll("\\s+", "");
+
+        String reversedText = new StringBuilder(cleanedText).reverse().toString();
+
+        return cleanedText.equals(reversedText);
+    }
+
 }
